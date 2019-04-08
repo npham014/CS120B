@@ -14,13 +14,21 @@ int main(void)
 	DDRC = 0xFF; PORTC = 0x00;
 	unsigned char tempA = 0x00;
 //	unsigned char fullLot = 0x04;
+	unsigned char spacesAvail = 0x00;
+	unsigned char spacesTaken = 0;
 //Doesn't check the case where input is more than 4.
 	while(1)
 	{
+		spacesTaken = 0;
 		tempA = PINA; //tempA is input
-		PORTC = tempA;// Set the input to the output.
-		if(tempA & 0x04) {
-			PORTC = 0x84;
+		while(tempA) {
+			spacesTaken += tempA & 1;
+			tempA >>= 1;
+		}
+		spacesAvail = 4 - spacesTaken;
+		PORTC = spacesAvail;// Set the input to the output.
+		if(!spacesAvail) {
+			PORTC = 0x80;
 		}
 	}
 	return 0;

@@ -58,9 +58,9 @@ main.d
 C_DEPS_AS_ARGS +=  \
 main.d
 
-OUTPUT_FILE_PATH +=npham014_lab2_part3.elf
+OUTPUT_FILE_PATH +=npham014_Lab3_Part1.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=npham014_lab2_part3.elf
+OUTPUT_FILE_PATH_AS_ARGS +=npham014_Lab3_Part1.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -105,13 +105,13 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="npham014_lab2_part3.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mrelax -mmcu=atmega1284 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega1284"  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="npham014_Lab3_Part1.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mrelax -mmcu=atmega1284 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega1284"  
 	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "npham014_lab2_part3.elf" "npham014_lab2_part3.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "npham014_lab2_part3.elf" "npham014_lab2_part3.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "npham014_lab2_part3.elf" > "npham014_lab2_part3.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "npham014_lab2_part3.elf" "npham014_lab2_part3.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "npham014_lab2_part3.elf"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "npham014_Lab3_Part1.elf" "npham014_Lab3_Part1.hex"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "npham014_Lab3_Part1.elf" "npham014_Lab3_Part1.eep" || exit 0
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "npham014_Lab3_Part1.elf" > "npham014_Lab3_Part1.lss"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "npham014_Lab3_Part1.elf" "npham014_Lab3_Part1.srec"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "npham014_Lab3_Part1.elf"
 	
 	
 
@@ -123,5 +123,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "npham014_lab2_part3.elf" "npham014_lab2_part3.a" "npham014_lab2_part3.hex" "npham014_lab2_part3.lss" "npham014_lab2_part3.eep" "npham014_lab2_part3.map" "npham014_lab2_part3.srec" "npham014_lab2_part3.usersignatures"
+	rm -rf "npham014_Lab3_Part1.elf" "npham014_Lab3_Part1.a" "npham014_Lab3_Part1.hex" "npham014_Lab3_Part1.lss" "npham014_Lab3_Part1.eep" "npham014_Lab3_Part1.map" "npham014_Lab3_Part1.srec" "npham014_Lab3_Part1.usersignatures"
 	
